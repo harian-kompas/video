@@ -150,11 +150,20 @@ var videos = (function () {
                 volumeWrapper,
                 volumeCurrent,
                 volumeImg,
-                volumeBar;
+                volumeBar,
+                w,
+                h;
 
             for (i = 0; i < vwLen; i++) {
                 video = videoWrapper[i].getElementsByTagName('video')[0];
                 controls = videoWrapper[i].getElementsByClassName('controls')[0];
+                w = videoWrapper[i].offsetWidth;
+                h = videoWrapper[i].offsetHeight;
+                console.log('w: ' + w + ' h: ' + h);
+                
+                video.setAttribute('width', w);
+                video.setAttribute('height', h);
+                
                 logo = document.createElement('img');
                 logo.setAttribute('src', iconsPath + 'logo_kompas.svg');
                 logo.setAttribute('alt', 'Kompas');
