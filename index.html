@@ -2,259 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-    <style>
-    * {
-		margin: 0;
-		padding: 0;
-		-webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -ms-box-sizing: border-box;
-        -o-box-sizing: border-box;
-		box-sizing: border-box;
-	}
-    
-    .wrapper {
-        width: 100%;
-        max-width: 960px;
-        margin: 0 auto;
-    }
-
-
-        
-    .box-video {
-        position: relative;
-        overflow: hidden;
-    }
-        
-    .box-video a {
-        display: block;
-        text-decoration: none;
-        
-    }
-
-    .box-video input[type=range] {
-        -webkit-appearance: none;
-        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-        background: rgba(255, 255, 255, 0.5);
-        margin: 0;
-        cursor: pointer;
-        outline: 0;
-    }
-
-    /*.box-video input[type=range]::-webkit-slider-runnable-track{
-        background: #f00;
-    }*/
-
-    .box-video input[type=range]::-moz-range-track {
-        border: inherit;
-        background: transparent;
-    }
-
-    .box-video input[type=range]::-ms-track {
-        border: inherit;
-        color: transparent;
-        background: transparent;
-    }
-
-    .box-video input[type=range]::-ms-fill-lower,
-    .box-video input[type=range]::-ms-fill-upper {
-        background: transparent;
-    }
-
-    .box-video input[type=range]::-ms-tooltip {
-        display: none;
-    }
-        
-    .box-video video {
-        display: block;
-        width: 100%;
-    }
-
-    .box-video .bar-progress {
-        height: 5px;
-        width: 100%;
-        position: absolute;
-        left: 0;
-        top: -5px;
-    }
-        
-    .box-video .bar-progress::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 10px;
-        height: 5px;
-        border: 0;
-        background: #f00;
-    }
-        
-    .box-video .bar-progress::-moz-range-thumb {
-        width: 10px;
-        height: 5px;
-        border: 0;
-        background: #f00;
-    }
-
-    .box-video .bar-progress::-ms-thumb {
-        width: 10px;
-        height: 5px;
-        border: 0;
-        background: #f00;
-    }
-
-    .box-video .bar-progress-current {
-        /*-webkit-appearance: progress-bar;*/
-        background-color: rgba(255, 0, 0, 0.5);
-        height: 5px;
-        position: absolute;
-        top: -5px;
-        width: 100%;
-    }
-        
-    .box-video .bar-volume {
-        display: block;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 10px;
-    }
-
-    .box-video .bar-volume::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 5px;
-        height: 15px;
-        border: 0;
-        background: #f00;
-    }
-
-    .box-video .bar-volume::-moz-range-thumb {
-        width: 5px;
-        height: 15px;
-        border: 0;
-        background: #f00;
-    }
-
-    .box-video .bar-volume::-ms-thumb {
-        width: 10px;
-        height: 10px;
-        border: 0;
-        border-radius: 50%;
-        background: #f00;
-    }
-    
-    .box-video .btn-fullscreen {
-        display: block;
-        height: 30px;
-        width: 30px;
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-        cursor: pointer;
-    }
-        
-    .box-video .btn-play {
-        display: block;
-        color: #fff;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-    }
-        
-    .box-video .controls {
-        background-color: rgba(0,0,0,0.3);
-        height: 50px;
-        width: 100%;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        -webkit-transition: bottom .4s;
-        transition: bottom .4s;
-    }
-
-    .box-video .controls.hidden {
-        bottom: -50px;
-    }
-        
-    .box-video .logo {
-        display: block;
-        height: 30px;
-        width: 30px;
-        position: absolute;
-        left: 10px;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-    
-    .box-video .wrapper-volume {
-        width: 80px;
-        position: absolute;
-        height: 10px;
-        right: 50px;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-    
-    .box-video .wrapper-volume img {
-        display: block;
-        width: 20px;
-        height: 20px;
-        position: absolute;
-        top: -5px;
-        left: -20px;
-    }
-        
-    .box-video .wrapper-volume img.muted {
-        opacity: 1;
-    }
-        
-    .box-video .wrapper-volume img.normal {
-        opacity: 0;
-    }
-        
-    .box-video .wrapper-volume .volume-current {
-        background: #f00;
-        height: 100%;
-        width: 50%;
-        /*max-width: 60px;*/
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-    </style>
+    <title>Video</title>
+    <link rel="stylesheet" href="css/video.css">
 </head>
 <body>
     <div class="wrapper">
         
         <div class="box-video">
-            <video preload="auto">
-                <source src="assets/video/MOV_0170e.mp4" type="video/mp4"></source>
+            <video class="media-block" preload="auto">
+                <source src="video/MOV_0170e.mp4" type="video/mp4">
                 Peramban Anda tak mendukung markah video
             </video>
-            <div class="controls"></div>
+            <div class="controls">
+                <!-- <div class="ico-logo"></div>
+                <div class="btn-play play" title="Putar"></div>
+                <div class="bar-progress-wrapper">
+                    <div class="bar-progress-current"></div>
+                    <input type="range" class="bar-progress-range" value="0">
+                </div>
+                <div class="bar-time">00:00:00</div>
+                <div class="volume-wrapper">
+                    <div class="ico-volume unmute"></div>
+                    <div class="bar-volume-current"></div>
+                    <input type="range" class="bar-volume-range" value="50">
+                </div>
+                <div class="btn-fullscreen" title="Layar penuh"></div> -->
+
+            </div>
         </div>
     </div>
     
-    <script src="video.js"></script>
+    <script src="js/video.js"></script>
 </body>
 </html>
