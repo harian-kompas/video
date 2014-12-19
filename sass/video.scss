@@ -23,7 +23,8 @@ $white: #fff;
 	position: relative;
 	overflow: hidden;
 
-	input[type=range] {
+	.bar-progress-range,
+	.bar-volume-range {
 		-webkit-appearance: none;
 		-webkit-tap-highlight-color: adjust_color($white, $alpha:-1);
 		margin: 0;
@@ -31,6 +32,10 @@ $white: #fff;
 		outline: 0;
 		padding: 0;
 		width: 100%;
+
+		&:focus {
+			outline: none;
+		}
 
 		&::-webkit-slider-runnable-track {
 			border: inherit;
@@ -63,45 +68,6 @@ $white: #fff;
 		}
 	}
 
-	.btn-fullscreen {
-		background-image: url(../img/ico_fullscreen.svg);
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: 30px 30px;
-		cursor: pointer;
-		height: 30px;
-		width: 30px;
-		position: absolute;
-		right: 10px;
-		top: 50%;
-		@include translateY(-50%);
-	}
-
-	.btn-play {
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: 30px 30px;
-		cursor: pointer;
-		height: 30px;
-		width: 30px;
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		@include translate(-50%, -50%);
-
-		&.pause {
-			background-image: url(../img/ico_pause.svg);
-		}
-
-		&.play {
-			background-image: url(../img/ico_play.svg);
-		}
-
-		&.replay {
-			background-image: url(../img/ico_replay.svg);
-		}
-	}
-
 	.bar-progress-current {
 		height: 5px;
 		background-color: adjust_color($white, $alpha:-0.1);
@@ -117,6 +83,7 @@ $white: #fff;
 		top: 0;
 		width: 100%;
 		background-color: adjust_color($white, $alpha:-0.7);
+		height: 5px;
 
 		&::-webkit-slider-thumb {
 			-webkit-appearance: none;
@@ -177,6 +144,7 @@ $white: #fff;
 		width: 100%;
 		background-color: adjust_color($white, $alpha:-0.7);
 		border-radius: 5px;
+		height: 5px;
 
 		&::-webkit-slider-thumb {
 			-webkit-appearance: none;
@@ -200,6 +168,50 @@ $white: #fff;
 			height: 11px;
 			border: 0;
 			background-color: $white;
+		}
+	}
+
+	.btn-fullscreen {
+		background-image: url(../img/ico_fullscreen.svg);
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 30px 30px;
+		cursor: pointer;
+		height: 30px;
+		width: 30px;
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		@include translateY(-50%);
+	}
+
+	.btn-play {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 30px 30px;
+		cursor: pointer;
+		height: 30px;
+		width: 30px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		@include translate(-50%, -50%);
+
+		&.pause {
+			background-image: url(../img/ico_pause.svg);
+		}
+
+		&.play {
+			background-image: url(../img/ico_play.svg);
+		}
+
+		&.replay {
+			background-image: url(../img/ico_replay.svg);
+		}
+
+		@media screen and (min-width: 320px) and (max-width: 767px) {
+			left: 50px;
+			@include translate(0, -50%);
 		}
 	}
 
